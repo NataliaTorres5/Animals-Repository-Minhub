@@ -1,3 +1,4 @@
+
 let URL_API = "https://zoo-animal-api.herokuapp.com/animals/rand/10"
 let data;
 async function getAnimals(){
