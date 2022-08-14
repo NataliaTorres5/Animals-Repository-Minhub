@@ -1,16 +1,12 @@
 
+let URL_API = "https://zoo-animal-api.herokuapp.com/animals/rand/10"
+let data;
+async function getAnimals(){
+    await fetch(URL_API)
+    .then(res => res.json())
+    .then(json => data = json)
 
-// const zooAnimals = async () => {
-//     try {
-//         const res = await fetch("https://zoo-animal-api.herokuapp.com/animals/rand/10")
-//         let apiFetch = await res.json()
-//         let animals = apiFetch.name
-//         console.log(apiFetch.name);
-
-//     } catch (error) {
-//         console.log(error);
-//     }
-
-// }
-
+    console.log(data);
+}
+getAnimals()
 
