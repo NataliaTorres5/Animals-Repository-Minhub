@@ -6,7 +6,7 @@ async function getAnimals(){
     .then(res => res.json())
     .then(json => data = json)
 
-    console.log(data);
+    //console.log(data);
 }
 getAnimals()
 
