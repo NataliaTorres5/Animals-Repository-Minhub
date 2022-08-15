@@ -37,9 +37,9 @@ let animal2 = {
 }
 
 
-
 function plantillaAnimales(objeto) {
-    let nombreCorrecto = objeto.nombre.charAt(0).toUpperCase()+objeto.nombre.slice(1).toLowerCase()
+    let objetoNombre = objeto.nombre
+    let nombreCorrecto = objetoNombre.charAt(0).toUpperCase()+objetoNombre.slice(1).toLowerCase()
     let tipoAnimal = objeto.tipo.charAt(0).toUpperCase()+objeto.tipo.slice(1).toLowerCase()
     return`
             <div id=${objeto.id} class='datos card'>
@@ -55,10 +55,10 @@ let plantilla = plantillaAnimales(animal1)
 //console.log(plantilla)
 
 function impresionEnHtml(idEnHtml, objeto) {
-    let impresion = plantillaAnimales (objeto)
+    let impresion = plantillaAnimales(objeto)
     let contenedor = document.getElementById(`${idEnHtml}`)
     contenedor.innerHTML += impresion
-    //document.querySelector(`#${id}`).innerHTML = plantillaAnimales(objeto) // codigo mas corto para hacer la impresion.
+    //document.querySelector(`#${idEnHtml}`).innerHTML += plantillaAnimales(objeto) // codigo mas corto para hacer la impresion.
 }
-impresionEnHtml ('todos',animal1) //todos es el nombre del div en el html
-impresionEnHtml ('todos',animal2)
+//impresionEnHtml ('todos',animal1) //todos es el nombre del div en el html
+//impresionEnHtml ('todos',animal2)
