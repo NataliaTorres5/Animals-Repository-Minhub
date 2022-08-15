@@ -52,9 +52,9 @@ function plantillaAnimales(objeto) {
 
 }
 let plantilla = plantillaAnimales(animal1)
-console.log(plantilla)
+//console.log(plantilla)
 
-function  impresionEnHtml(idEnHtml, objeto) {
+function impresionEnHtml(idEnHtml, objeto) {
     let impresion = plantillaAnimales (objeto)
     let contenedor = document.getElementById(`${idEnHtml}`)
     contenedor.innerHTML += impresion
@@ -62,4 +62,3 @@ function  impresionEnHtml(idEnHtml, objeto) {
 }
 impresionEnHtml ('todos',animal1) //todos es el nombre del div en el html
 impresionEnHtml ('todos',animal2)
-
