@@ -1,67 +1,77 @@
+
+
 let mayores = document.querySelector('#mayores')
-// Definir una función que tome como parámetros el id de una etiqueta html y un array de animales y retorne la impresion de todos los animales.
-// - Reutilizar la función anterior
-// - Generar una función con for
-let arrayDeAnimales2 = [animal1, animal2, animal2, animal1]
 
-function renderizadoConFor(todos, arrayDeAnimales2) {
-    for (let i = 0; i < arrayDeAnimales2.length; i++) {
-        impresionEnHtml('todos', arrayDeAnimales2[i])}
-}
-//console.log(arrayDeAnimales2);
-renderizadoConFor(todos, arrayDeAnimales2)
+let animales = [animal1, animal2, animal2, animal1]
 
-// - Generar una función con for in y for of
-function renderizadoConForIn (todos, arrayDeAnimales2) {
-    for (let animal in arrayDeAnimales2) {
-        impresionEnHtml('todos', animal)
-    }
-    for (let animal of arrayDeAnimales2) {
-        impresionEnHtml('todos', arrayDeAnimales2[animal])
+
+function renderizadoConFor(idHTML, array) {
+    for (let i = 0; i < array.length; i++) {
+        impresionEnHtml(idHTML, array[i])
     }
 }
-renderizadoConForIn('todos', arrayDeAnimales2)
+//renderizadoConFor("mayores", animales)
 
-// - Generar otra función con map
-function renderizadoConMap(){
-    let mapeoDeArray = arrayDeAnimales2.map(cadaAnimal => impresionEnHtml(todos, cadaAnimal))
+function renderizadoConForIn(idHTML, array) {
+    for (let animal of array) {
+        impresionEnHtml(idHTML, animal)
+    }
+    for (let animal in array) {
+        impresionEnHtml(idHTML, array[animal])
+    }
+}
+//renderizadoConForIn("mayores", animales)
+
+// ejemplo con for Each -----
+function renderizadoConEach(idDelHtml, arrayDeAnimales) {
+    arrayDeAnimales.forEach(cadaElemento => impresionEnHtml(idDelHtml, cadaElemento))
+}
+//renderizadoConEach('mayores',animales)
+
+//----- funcion con map ------
+
+function renderizadoConMap(idDelHtml, arrayDeAnimales) {
+    let mapeoDeArray = arrayDeAnimales.map(cadaAnimal => impresionEnHtml(idDelHtml, cadaAnimal))
     return mapeoDeArray
 }
-//renderizadoConMap('todos', arrayDeAnimales2)
+renderizadoConMap('mayores', animales)
 
-// - Probar los resultados con los datos hardcodeados y evaluar las ventajas de cada opción
-// Definir una función que tome como parámetros el id de una etiqueta html y un array de productos y retorne la impresion de los productos con fecha de estacionamiento mayor al 2010.
-// - Generar una función con for
-function filterConFor(todos, arrayDeAnimales2){
-    for(let i = 0; i < arrayDeAnimales2.length; i++){
-        if(arrayDeAnimales2[i].tiempoDeVidaEnAños > 10){
-            impresionEnHtml(todos, arrayDeAnimales2[i])
+
+
+
+//-------------------------//
+
+function filterConFor(idDelHtml, arrayDeProductos) {
+    for (let i = 0; i < arrayDeProductos.length; i++) {
+        if (arrayDeProductos[i].tiempoDeVidaEnAños > 10) {
+            impresionEnHtml(idDelHtml, arrayDeProductos[i])
         }
     }
 }
-//filterConFor('mayores', arrayDeAnimales2)
+//filterConFor('mayores',animales)
 
-// - Generar una función con for in
-function filterConForIn(idEnHtml, arrayDeAnimales2){
-    for(let animal of arrayDeAnimales2){
-        if(animal.tiempoDeVidaEnAños > 10){
-            impresionEnHtml(idEnHtml, animal)
+function filterConForOf(idDelHtml, arrayDeAnimales) {
+    for (let animal of arrayDeAnimales) { //por cada producto del array de productos
+        if (animal.tiempoDeVidaEnAños > 10) {
+            impresionEnHtml(idDelHtml, animales)
         }
     }
-    for(let animal in arrayDeAnimales2){
-        if(arrayDeAnimales2[animal].tiempoDeVidaEnAños >10){
-            impresionEnHtml(idEnHtml, arrayDeAnimales2[animal])
+    for (let animal in arrayDeAnimales) { //producto acá es el índice! no el objeto
+        if (arrayDeAnimales[animal].tiempoDeVidaEnAños > 10) {
+            impresionEnHtml(idDelHtml, arrayDeAnimales[animal])
         }
+        console.log(animal)
     }
 }
-//filterConForIn('mayores', arrayDeAnimales2)
+//filterConForOf('mayores',animales) //renderiza 8 animales porque a que filtra 2 veces
 
-// - Generar otra función con filter
-function filterConFilter(idEnHtml, arrayDeAnimales2){
-    let arrayFiltrado = arrayDeAnimales2.filter(cadaAnimal => cadaAnimal.tiempoDeVidaEnAños > 10)
-    renderizadoConForIn(idEnHtml, arrayFiltrado)
+function filter(idDelHtml, arrayDeAnimales) {
+    let arrayFiltrado = arrayDeAnimales.filter(cadaElemento => cadaElemento.tiempoDeVidaEnAños > 10)
+    console.log(arrayFiltrado)
+    renderizadoConEach(idDelHtml, arrayFiltrado) //llamo a la funcion anterior, porque tengo que imprimir un array
 }
-//filterConFilter('mayores', arrayDeAnimales2)
+filter('mayores', animales)
 
-// - Probar los resultados con los datos hardcodeados y evaluar las ventajas de cada opción
-// Subir los archivos a la rama correspondiente de github (git add, git commit, git push), armar la pull request y si no hay conflictos: mergear
+
+
+
