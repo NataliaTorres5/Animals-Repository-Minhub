@@ -2,8 +2,7 @@
 
 let mayores = document.querySelector('#mayores')
 
-let animales = [animal1, animal2, animal2, animal1]
-
+let animales = [animal1, animal2,animal3,animal4,animal5,animal6,animal7,animal8,animal9,animal10,animal11,animal12]
 
 function renderizadoConFor(idHTML, array) {
     for (let i = 0; i < array.length; i++) {
@@ -37,6 +36,9 @@ function renderizadoConMap(idDelHtml, arrayDeAnimales) {
 renderizadoConMap('mayores', animales)
 
 
+
+renderizadoConMap(mayores, animales)
+console.log (renderizadoConMap)
 
 
 //-------------------------//
